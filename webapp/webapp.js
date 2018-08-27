@@ -65,6 +65,47 @@ angular.module('myApp', [
 		console.log("SEND SERVO", json) //debug chơi à
 		mySocket.emit("SERVO", json)
 	}
+	
+	 $scope.upt5  = function(){
+	var ip = document.getElementById('ip').value;
+		mySocket.emit("LED1ON"+ip)
+    
+	}
+	$scope.upt51  = function(){
+	     var ip = document.getElementById('ip').value;
+		mySocket.emit("LED1OFF"+ip)
+	}
+	$scope.upt6  = function(){
+		var ip = document.getElementById('ip').value;
+		mySocket.emit("LED2ON"+ip)
+	}
+	$scope.upt61  = function(){
+		var ip = document.getElementById('ip').value;
+		mySocket.emit("LED2OFF"+ip)
+	}
+	$scope.upt7  = function(){
+		var ip = document.getElementById('ip').value;
+		mySocket.emit("LED3ON"+ip)
+	}
+	$scope.upt71  = function(){
+		var ip = document.getElementById('ip').value;
+		mySocket.emit("LED3OFF"+ip)
+	}
+	$scope.upt8  = function(){
+		var ip = document.getElementById('ip').value;
+		mySocket.emit("LED4ON"+ip)
+	}
+	$scope.upt81  = function(){
+		var ip = document.getElementById('ip').value;
+		mySocket.emit("LED4OFF"+ip)
+	}
+	//khi nhận được lệnh Button
+	mySocket.on('BUTTON', function(json) {
+		//Nhận được thì in ra thôi hihi.
+		console.log("recv BUTTON", json)
+		$scope.buttons = json.data
+	})
+	
 	//
 	
 	// line chart data
