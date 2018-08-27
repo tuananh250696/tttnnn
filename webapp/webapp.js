@@ -106,6 +106,17 @@ angular.module('myApp', [
 			color : "#FFEA88"
 		}
 	];
+	// get line chart canvas
+	var buyers = document.getElementById('buyers').getContext('2d');
+
+	// draw line chart
+	new Chart(buyers).Line(buyerData);
+	
+	
+	
+	
+	
+	
 /////
 	////Khu 3 -- Nhận dữ liệu từ Arduno gửi lên (thông qua ESP8266 rồi socket server truyền tải!)
 	//các sự kiện từ Arduino gửi lên (thông qua esp8266, thông qua server)
