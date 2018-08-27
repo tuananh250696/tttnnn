@@ -1,46 +1,109 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>My App</title>
-		<link rel="stylesheet" href="/dist/css/mobile-angular-ui-hover.min.css" />
-		
-		<link rel="stylesheet" href="/dist/css/mobile-angular-ui-base.min.css" />
-		
-		<link rel="stylesheet" href="/dist/css/mobile-angular-ui-desktop.min.css" />
-		<script src="/angular.min.js"></script>
-		<script src="/angular-route.min.js"></script>
-		<script src="/dist/js/mobile-angular-ui.min.js"></script>
-		<script src="/dist/socket.io.min.js"></script>
-		<script src="/socket.min.js"></script>
-		<script src="/webapp.js"></script>
-		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-	</head>
-	<body ng-app="myApp">
-		<!-- Sidebars -->
-		<div class="sidebar sidebar-left">
-			<!-- ... -->
-		</div>
-		<div class="sidebar sidebar-right">
-			<!-- ... -->
-		</div>
-		<div class="app">
-			<div class="navbar navbar-app navbar-absolute-top">
-				<!-- Top Navbar -->
-			</div>
-			<div class="navbar navbar-app navbar-absolute-bottom">
-				<!-- Bottom Navbar -->
-			</div>
-			<!-- App body -->
-			<div class='app-body'>
-				<div class='app-content'>
-					<ng-view>
-					</ng-view>
-				</div>
-			</div>
-		</div>
-		<!-- ~ .app -->
-		<!-- Modals and Overlays -->
-		<div ui-yield-to="modals"></div>
-	</body>
+<head>
+<title>Dễ dàng tạo biểu đồ trên web với Chart.js</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="demo.css" media="all" />
+    <script src="Chart.min.js"></script>
+    <link rel="icon" href="http://www.thuthuatweb.net/wp-content/themes/HostingSite/favicon.ico" type="image/x-ico"/>
+</head>
+<body>
+   
+<!-- line chart canvas element -->
+        <canvas id="buyers" width="600" height="400"></canvas>
+        <!-- pie chart canvas element -->
+        <canvas id="countries" width="600" height="400"></canvas>
+        <!-- bar chart canvas element -->
+        <canvas id="income" width="600" height="400"></canvas>
+    
+<div class="footer-bar">
+    <span class="article-wrapper">
+        <span class="article-label">Xem Bài Viết: </span>
+        <span class="article-link"><a href="https://www.thuthuatweb.net/javacript/de-dang-tao-bieu-do-tren-web-voi-chart-js.html">Dễ dàng tạo biểu đồ trên web với Chart.js</a></span>
+    </span>
+    
+</div>
+    
+<script>
+
+	// line chart data
+	var buyerData = {
+		labels : ["monday","Tuesday","wednesday","thursday","friday","satuday","sunday"],
+		datasets : [
+		{
+				fillColor : "rgba(172,194,132,0.4)",
+				strokeColor : "#ACC26D",
+				pointColor : "#fff",
+				pointStrokeColor : "#9DB86D",
+				data : [203,156,99,251,305,247,200]
+				
+			}
+		]
+	}
+	
+	// get line chart canvas
+	var buyers = document.getElementById('buyers').getContext('2d');
+
+	// draw line chart
+	new Chart(buyers).Line(buyerData);
+	
+	// pie chart data
+	var pieData = [
+		{
+			value: 20,
+			color:"#878BB6"
+		},
+		{
+			value : 40,
+			color : "#4ACAB4"
+		},
+		{
+			value : 10,
+			color : "#FF8153"
+		},
+		{
+			value : 30,
+			color : "#FFEA88"
+		}
+	];
+
+	// pie chart options
+	var pieOptions = {
+		segmentShowStroke : false,
+		animateScale : true
+	}
+	
+	// get pie chart canvas
+	var countries= document.getElementById("countries").getContext("2d");
+	
+	// draw pie chart
+	new Chart(countries).Pie(pieData, pieOptions);
+	
+	// bar chart data
+	var barData = {
+	labels : ["monday","Tuesday","wednesday","thursday","friday","satuday","sunday"],
+	datasets : [
+		{
+			fillColor : "#48A497",
+			strokeColor : "#48A4D1",
+			data : [456,479,324,569,702,600]
+		},
+		{
+			fillColor : "rgba(73,188,170,0.4)",
+			strokeColor : "rgba(72,174,209,0.4)",
+			data : [364,504,605,400,345,320]
+		}
+		]
+	}
+	
+	// get bar chart canvas
+	var income = document.getElementById("income").getContext("2d");
+	
+	// draw bar chart
+	new Chart(income).Bar(barData);
+
+</script>
+    
+</body>
 </html>
