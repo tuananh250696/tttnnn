@@ -65,7 +65,48 @@ angular.module('myApp', [
 		console.log("SEND SERVO", json) //debug chơi à
 		mySocket.emit("SERVO", json)
 	}
+	//
 	
+	// line chart data
+	var buyerData = {
+		labels : ["monday","Tuesday","wednesday","thursday","friday","satuday","sunday"],
+		datasets : [
+		{
+				fillColor : "rgba(172,194,132,0.4)",
+				strokeColor : "#ACC26D",
+				pointColor : "#fff",
+				pointStrokeColor : "#9DB86D",
+				data : [203,156,99,251,305,247,200]
+				
+			}
+		]
+	}
+	
+	var buyers = document.getElementById('buyers').getContext('2d');
+
+	// draw line chart
+	new Chart(buyers).Line(buyerData);
+	
+	// pie chart data
+	var pieData = [
+		{
+			value: 20,
+			color:"#878BB6"
+		},
+		{
+			value : 40,
+			color : "#4ACAB4"
+		},
+		{
+			value : 10,
+			color : "#FF8153"
+		},
+		{
+			value : 30,
+			color : "#FFEA88"
+		}
+	];
+/////
 	////Khu 3 -- Nhận dữ liệu từ Arduno gửi lên (thông qua ESP8266 rồi socket server truyền tải!)
 	//các sự kiện từ Arduino gửi lên (thông qua esp8266, thông qua server)
 	mySocket.on('RAIN', function(json) {
