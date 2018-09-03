@@ -62,7 +62,7 @@
 					<i class="fa fa-gamepad feature-icon text-primary"></i>
 				</div>
 				<div>
-					<h3 class="home-heading">Cảm biến mưa</h3>
+					<h3 class="home-heading">ĐỘ ẨM</h3>
 					Kết quả: {{CamBienMua}}
 				</div>
 			</div>
@@ -79,7 +79,8 @@
 					</button>
 				</div>
 			</div>
-			
+				<!-- line chart canvas element -->
+                           <canvas id="buyers" width="600" height="400"></canvas>
 			<!-- Cục cập nhập giá trị servo -->
 			<div class="list-group-item list-group-item-home">
 				<div>
@@ -146,9 +147,7 @@
 				</div>
 	
 			
-		<!-- line chart canvas element -->
-        <canvas id="buyers" width="600" height="400"></canvas>
-        <!-- pie chart canvas element -->
+
         <canvas id="countries" width="600" height="400"></canvas>
         <!-- bar chart canvas element -->
         <canvas id="income" width="600" height="400"></canvas>
