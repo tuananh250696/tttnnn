@@ -20,7 +20,7 @@ angular.module('myApp', [
 	////Khu 1 -- Khu cài đặt tham số 
     //cài đặt một số tham số test chơi
 	//dùng để đặt các giá trị mặc định
-    $scope.CamBienMua = "Không biết nữa ahihi, chưa thấy có thằng nào cập nhập hết";
+    $scope.CamBienMua = "chưa có cap nhat";
     $scope.leds_status = [1, 1]
 	$scope.lcd = ["", ""]
 	$scope.servoPosition = 0
