@@ -73,6 +73,15 @@ angular.module('myApp', [
 		var ip = document.getElementById('ip').value;
 		mySocket.emit("LED4OFF"+ip)
 	}
+		$scope.upt9  = function(){
+		var ip = document.getElementById('ip').value;
+		mySocket.emit("ONALL"+ip)
+	}
+	$scope.upt91  = function(){
+		var ip = document.getElementById('ip').value;
+		mySocket.emit("OFFALL"+ip)
+	}
+	
 	//khi nhận được lệnh Button
 	mySocket.on('BUTTON', function(json) {
 		//Nhận được thì in ra thôi hihi.
