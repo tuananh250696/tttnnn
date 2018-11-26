@@ -1,4 +1,4 @@
-angular.module('myApp', [
+angular.module('DATNDPU', [
     'ngRoute',
     'mobile-angular-ui',
 	'btford.socket-io'
